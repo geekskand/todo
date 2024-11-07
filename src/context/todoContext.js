@@ -1,23 +1,23 @@
-import { createContext,useContext } from "react";
+import { createContext, useContext } from "react";
 
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3537143264.
-const todoContext = createContext({
-    todos : [
-        {
-            id:1,
-            todo: "todo txt",
-            completed: false
-        }
-    ],
-    addTodo : (todo) => {},
-    updateTodo : (id,todo) => {},
-    removeTodo : (id) => {},
-    toggleTodo : (id) => {}
-    
+// Create the context with default values
+export const TodoContext = createContext({
+  todos: [
+    {
+      id: 1,
+      todo: "todo txt",
+      completed: false,
+    },
+  ],
+  addTodo: (todo) => {},
+  updateTodo: (id, todo) => {},
+  removeTodo: (id) => {},
+  toggleTodo: (id) => {},
 });
 
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1401215867.
-export useTodo = () => useContext(todoContext);
+export const useTodo = () => useContext(TodoContext);
 
-export TodoProvider = todoContext.Provider
+// Exporting the provider
+export const TodoProvider = TodoContext.Provider;
+export default TodoContext;
 

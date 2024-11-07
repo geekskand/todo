@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTodo } from '../context';
-import './App.css'; // Assuming this file contains global styles
+
 
 function TodoForm() {
   const [todoText, setTodoText] = useState('');

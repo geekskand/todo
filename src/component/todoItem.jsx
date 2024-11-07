@@ -4,7 +4,7 @@ import { useState } from "react";
 function TodoItem({ todo }) {
   const { updateTodo, removeTodo, toggleTodo } = useTodo();
   const [edit, setEdit] = useState(false);
-  const [todoTxt, setTodoTxt] = useState(todo.todo);
+  const [todoTxt, setTodoTxt] = useState(todo?.todo || ""); // Safeguard against undefined
 
   const editTodo = () => {
     updateTodo(todo.id, { ...todo, todo: todoTxt });
@@ -22,7 +22,7 @@ function TodoItem({ todo }) {
   return (
     <div
       className={`flex border border-gray-300 rounded-lg px-4 py-2 gap-x-3 shadow-sm shadow-gray-400/20 duration-300 text-gray-700 ${
-        todo.completed ? "bg-green-100" : "bg-purple-50"
+        todo.completed ? "bg-green-100" : "bg-purple-100"
       }`}
     >
       <input
@@ -67,3 +67,4 @@ function TodoItem({ todo }) {
 }
 
 export default TodoItem;
+
